@@ -1,4 +1,4 @@
-(function(){
+$(function(){
     "use strict";
 	var Book = function (bookTitle, firstName, lastName, gender) {
 	    this.title = bookTitle;
@@ -11,28 +11,28 @@
     					"https://georgeslibrary.azure-mobile.net/",
     					"HleVTiVmsNsfQNEIXAMdRjfnnhudBg11");
 	
-	$("#save").click(function () {
-	    var bookTitle = $("#bookTitle").val();
-	    var firstName = $("firstName").val();
-	    var lastName = $("lastName").val();
-	    var gender = $("gender").val();
-	});
+	var book = {
+	    bookTitle: "Animal Farm",
+	    firstName: "George",
+	    lastName: "Orwell",
+        gender: "Male"
+	};
+	client.getTable("authorInfo").insert(book);
 
-	var book = new Book(bookTitle, firstName, lastName, gender);
+
+	//$("#save").click(function (event) {
+	//    var bookTitle = $("#bookTitle").val();
+	//    var firstName = $("firstName").val();
+	//    var lastName = $("lastName").val();
+	//    var gender = $("gender").val();
+
+	//    event.preventDefault();
+	//});
+
+	//var book = new Book(bookTitle, firstName, lastName, gender);
     
-	$.ajax({
-		url: baseUrl,
-		data: book,
-		success: function(msg){
-			toastr.success("Success " + msg) 
-		},
-		error: function(error){
-			toastr.error("Error " + error)
-		},
-		type: "POST"
-	});
-	
-	
+	//client.getTable("authorInfo").insert(book);
+	    
 	
 	
 	
