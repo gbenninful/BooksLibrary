@@ -1,64 +1,88 @@
 <!DOCTYPE>
 <html lang="en">
-	<head>
-		<meta name="description" content="George's Books Library" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>George's Book Library</title>
-		<!-- Latest compiled and minified CSS -->
-        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.min.css" rel="stylesheet"/>
-        <link href="booksLib.min.css" rel="stylesheet" />
-	</head> 
-	
-	<body>
-	<h1>George's Library</h1>
-	<h3>Please enter Author Information and click save</h3>
-	<form class="form-horizontal" role="form">
-  <div class="form-group">
-    <label for="bookTitle" class="col-sm-1 control-label">Book Title:</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="bookTitle" placeholder="Book Title" required />
+<head>
+    <meta name="description" content="George's Books Library" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>George's Book Library</title>
+    <!-- Latest compiled and minified CSS -->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.min.css" rel="stylesheet" />
+    <link href="booksLib.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-10">
+                <h1>George's Library</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-9">
+                <h3>Please enter Author Information and click save</h3>
+            </div>
+        </div>
+
+
+        <form class="form-horizontal" role="form" id="bookform">
+            <div class="form-group">
+                <label for="bookTitle" class="col-sm-2 control-label">Book Title:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="bookTitle" placeholder="Book Title" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="firstName" class="col-sm-2 control-label">First Name:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="firstName" placeholder="First Name" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastName" class="col-sm-2 control-label">Last Name:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="lastName" placeholder="Last Name" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="gender" class="col-sm-2 control-label">Gender:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="gender" placeholder="Gender" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-8">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="reset" id="reset" class="btn btn-primary">Reset</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-8">
+                    <button type="submit" id="display" class="btn btn-primary">Display</button>
+                </div>
+            </div>
+        </form>
+
+
+        <table id="authors" class="table table-striped">
+            <tr>
+                <th>Book Title</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Gender</th>
+            </tr>
+
+        </table>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="firstName" class="col-sm-1 control-label">First Name:</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="firstName" placeholder="First Name" required />
-    </div>
-  </div>
- <div class="form-group">
-    <label for="lastName" class="col-sm-1 control-label">Last Name:</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="lastName" placeholder="Last Name" required />
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="gender" class="col-sm-1 control-label">Gender:</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="gender" placeholder="Gender" required />
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-1 col-sm-10">
-      <button type="submit" id="save" class="btn btn-primary">Save</button>
-      <button type="submit" id="reset" class="btn btn-primary">Reset</button>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-1 col-sm-10">
-      <button type="submit" id="display" class="btn btn-primary">Display</button>
-    </div>
-  </div>
-</form>
-	
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.3.min.js"></script>
-    <script src="booksLib.js"></script>	
-	</body>
+    <script src="booksLib.js"></script>
+</body>
 </html>
